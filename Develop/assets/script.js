@@ -18,30 +18,30 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-
-
+// creates random password and posts it for user to view
 function generatePassword() {
   var characters = "";
   var passwordLength = prompt("How long would you like your password? Between 8-128");
-  var upperAsk = prompt("Include uppercase characters?");
-  var lowerAsk = prompt("Include lowercase characters?");
-  var numberAsk = prompt("Include numbers?");
-  var specialAsk = prompt("Include special characters?");
+  var upperAsk = confirm("Include uppercase characters?");
+  var lowerAsk = confirm("Include lowercase characters?");
+  var numberAsk = confirm("Include numbers?");
+  var specialAsk = confirm("Include special characters?");
   var password = "";
-  if (upperAsk === "yes") { 
+  if (upperAsk === true) { 
     characters += upper; 
   } 
-  if (lowerAsk === "yes") { 
+  if (lowerAsk === true) { 
     characters += lower; 
   } 
-  if (numberAsk === "yes") { 
+  if (numberAsk === true) { 
     characters += number; 
   } 
-  if (specialAsk === "yes") { 
+  if (specialAsk === true) { 
     characters += special; 
   } 
-  for ( index = 0; index <= passwordLength; index++) {
- var randomNumber = Math.floor(Math.random() * characters.length);
+  for (let index = 0; index <= passwordLength; index++) {
+  var randomNumber = Math.floor(Math.random() * characters.length);
   password += characters.substring(randomNumber, randomNumber +1);
   }
+  return password
 }
